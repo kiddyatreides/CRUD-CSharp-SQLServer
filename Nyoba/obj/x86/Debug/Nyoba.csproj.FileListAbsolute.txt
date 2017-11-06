@@ -1,0 +1,8 @@
+C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\bin\Debug\Nyoba.exe.config
+C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\bin\Debug\Nyoba.exe
+C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\bin\Debug\Nyoba.pdb
+C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\obj\x86\Debug\Nyoba.Form1.resources
+C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\obj\x86\Debug\Nyoba.Properties.Resources.resources
+C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\obj\x86\Debug\Nyoba.csproj.GenerateResource.Cache
+C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\obj\x86\Debug\Nyoba.exe
+C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\obj\x86\Debug\Nyoba.pdb
