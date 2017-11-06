@@ -6,3 +6,5 @@ C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\obj\x86
 C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\obj\x86\Debug\Nyoba.csproj.GenerateResource.Cache
 C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\obj\x86\Debug\Nyoba.exe
 C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\obj\x86\Debug\Nyoba.pdb
+C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\obj\x86\Debug\Nyoba.csprojResolveAssemblyReference.cache
+C:\Users\kiddyatreides\documents\visual studio 2010\Projects\Nyoba\Nyoba\obj\x86\Debug\Nyoba.Form2.resources

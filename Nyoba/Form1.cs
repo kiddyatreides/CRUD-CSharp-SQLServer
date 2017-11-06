@@ -28,6 +28,7 @@ namespace Nyoba
         {
             // TODO: This line of code loads data into the 'cCITFTUIDataSet.kontak' table. You can move, or remove it, as needed.
             loadTable();
+            //this.reportViewer1.RefreshReport();
         }
 
         private void loadTable()
@@ -258,6 +259,13 @@ namespace Nyoba
             MessageBox.Show(msg);
             ClearForm();
             loadTable();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form2 move = new Form2();
+            move.Show();
+            
         }
     }
 }
