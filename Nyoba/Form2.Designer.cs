@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.CrystalReport21 = new Nyoba.CrystalReport2();
             this.CrystalReport41 = new Nyoba.CrystalReport4();
             this.SuspendLayout();
             // 
@@ -61,7 +60,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private CrystalReport2 CrystalReport21;
         private CrystalReport4 CrystalReport41;
 
     }

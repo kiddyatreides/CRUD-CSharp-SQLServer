@@ -28,7 +28,49 @@ namespace Nyoba
         {
             // TODO: This line of code loads data into the 'cCITFTUIDataSet.kontak' table. You can move, or remove it, as needed.
             loadTable();
+            tb_id.Text = generateID();
+            tb_id.Enabled = false;
             //this.reportViewer1.RefreshReport();
+        }
+
+        protected string generateID()
+        {
+            
+            string sID = null;
+            int ID = 0;
+            Koneksi kon = new Koneksi();
+            SqlConnection sqlconn = kon.getConnection();
+            sqlconn.Open();
+            DataTable dt = new DataTable();
+            SqlDataReader myReader = null;
+            SqlCommand myCommand = new SqlCommand("select TOP 1 id from nasabah order by id DESC", sqlconn);
+            myReader = myCommand.ExecuteReader();
+
+            if (myReader.Read())
+            {
+                sID = (myReader["id"].ToString());
+                ID = Convert.ToInt32(sID.Substring(1, 3));
+                ID += 1;
+                if (ID <= 9)
+                {
+                    sID = "N00" + ID;
+                }
+                else if (ID <= 90)
+                {
+                    sID = "N0" + ID;
+                }
+                else if (ID <= 900)
+                {
+                    sID = "N" + ID;
+                }
+            }
+            else
+            {
+                sID = "N001";
+            }
+            sqlconn.Close();
+            return sID;
+
         }
 
         private void loadTable()
@@ -37,7 +79,7 @@ namespace Nyoba
             {
                 Koneksi kon = new Koneksi();
                 SqlConnection sqlcon = kon.getConnection();
-                string sql = "select * from kontak;";
+                string sql = "select * from nasabah;";
                 SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
                 SqlDataAdapter sqlda = new SqlDataAdapter();
                 sqlda.SelectCommand = sqlcom;
@@ -93,7 +135,7 @@ namespace Nyoba
         {
             try
             {
-                tb_id.Enabled = true;
+                tb_id.Enabled = false;
                 btn_add.Enabled = true;
                 tb_id.Text = null;
                 tb_nama.Text = null;
@@ -109,41 +151,51 @@ namespace Nyoba
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ValidateData() == 0)
+            try
             {
-                Koneksi kon = new Koneksi();
-                SqlConnection sqlcon = kon.getConnection();
-                string msg = string.Empty;
-                using (sqlcon)
+
+                if (ValidateData() == 0)
                 {
-                    sqlcon.Open();
-                    string sql = "insert into kontak (nama, nohp, alamat, usia) values( @nama, @nohp, @alamat, @usia)";
-                    SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
-                    using (sqlcom)
+                    Koneksi kon = new Koneksi();
+                    SqlConnection sqlcon = kon.getConnection();
+                    string msg = string.Empty;
+                    using (sqlcon)
                     {
-                        sqlcom.Parameters.AddWithValue("@nama", tb_nama.Text);
-                        sqlcom.Parameters.AddWithValue("@nohp", tb_nohp.Text);
-                        sqlcom.Parameters.AddWithValue("@alamat", tb_alamat.Text);
-                        sqlcom.Parameters.AddWithValue("@usia", tb_usia.Text.ToString());
-                        int res = sqlcom.ExecuteNonQuery();
-                        msg = (res != 0 ? "Data has been saved." : "Oops, something went wrong.");
+                        sqlcon.Open();
+                        string sql = "insert into nasabah (id, nama, nohp, alamat, usia) values( @id, @nama, @nohp, @alamat, @usia)";
+                        SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
+                        using (sqlcom)
+                        {
+                            sqlcom.Parameters.AddWithValue("@id", tb_id.Text.ToString());
+                            sqlcom.Parameters.AddWithValue("@nama", tb_nama.Text);
+                            sqlcom.Parameters.AddWithValue("@nohp", tb_nohp.Text);
+                            sqlcom.Parameters.AddWithValue("@alamat", tb_alamat.Text);
+                            sqlcom.Parameters.AddWithValue("@usia", tb_usia.Text.ToString());
+                            int res = sqlcom.ExecuteNonQuery();
+                            msg = (res != 0 ? "Data has been saved." : "Oops, something went wrong.");
+                        }
+                        sqlcon.Close();
                     }
-                    sqlcon.Close();
+                    MessageBox.Show(msg);
+                    loadTable();
+                    ClearForm();
+                    //AutoGenerate();
                 }
-                MessageBox.Show(msg);
-                loadTable();
-                ClearForm();
-                //AutoGenerate();
+                else
+                {
+                    MessageBox.Show("Please Fix The Error");
+                }
             }
-            else
+            catch (Exception exc)
             {
-                MessageBox.Show("Please Fix The Error");
+                MessageBox.Show(exc.ToString());
             }
         }
 
         private void btn_reset_Click(object sender, EventArgs e)
         {
             ClearForm();
+            generateID();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -153,7 +205,7 @@ namespace Nyoba
 
                 Koneksi kon = new Koneksi();
                 SqlConnection sqlcon = kon.getConnection();
-                string sql = "select * from kontak where id =" + tb_search.Text + ";";
+                string sql = "select * from nasabah where nasabah_id =" + tb_search.Text + ";";
                 SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
                 SqlDataAdapter sqlda = new SqlDataAdapter();
                 sqlda.SelectCommand = sqlcom;
@@ -208,7 +260,7 @@ namespace Nyoba
                     using (sqlcon)
                     {
                         sqlcon.Open();
-                        string sql = "update kontak set nama = @name, nohp = @nohp, alamat = @alamat, usia = @usia where id = @id";
+                        string sql = "update kontak set nama = @name, nohp = @nohp, alamat = @alamat, usia = @usia where nasabah_id = @id";
                         SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
                         using (sqlcom)
                         {
@@ -245,7 +297,7 @@ namespace Nyoba
             using (sqlcon)
             {
                 sqlcon.Open();
-                string sql = "delete from kontak where id = @id";
+                string sql = "delete from nasabah where nasabah_id = @id";
                 SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
                 using (sqlcon)
                 {
