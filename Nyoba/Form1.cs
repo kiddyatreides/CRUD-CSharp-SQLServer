@@ -179,6 +179,7 @@ namespace Nyoba
                     MessageBox.Show(msg);
                     loadTable();
                     ClearForm();
+                    tb_id.Text = generateID();
                     //AutoGenerate();
                 }
                 else
@@ -195,7 +196,7 @@ namespace Nyoba
         private void btn_reset_Click(object sender, EventArgs e)
         {
             ClearForm();
-            generateID();
+            tb_id.Text = generateID();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -205,7 +206,8 @@ namespace Nyoba
 
                 Koneksi kon = new Koneksi();
                 SqlConnection sqlcon = kon.getConnection();
-                string sql = "select * from nasabah where nasabah_id =" + tb_search.Text + ";";
+                //string sql = "select * from nasabah where id = '" + tb_search.Text + "';";
+                string sql = "select * from nasabah where nama like '%" + tb_search.Text + "%';";
                 SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
                 SqlDataAdapter sqlda = new SqlDataAdapter();
                 sqlda.SelectCommand = sqlcom;
@@ -228,9 +230,9 @@ namespace Nyoba
                 {
                     string id = row.Cells[0].Value.ToString();
                     string name = row.Cells[1].Value.ToString();
-                    string nohp = row.Cells[2].Value.ToString();
-                    string usia = row.Cells[3].Value.ToString();
-                    string alamat = row.Cells[4].Value.ToString();
+                    string alamat = row.Cells[2].Value.ToString();
+                    string nohp = row.Cells[3].Value.ToString();
+                    string usia = row.Cells[4].Value.ToString();
 
                     tb_id.Text = id;
                     tb_nama.Text = name;
@@ -260,15 +262,15 @@ namespace Nyoba
                     using (sqlcon)
                     {
                         sqlcon.Open();
-                        string sql = "update kontak set nama = @name, nohp = @nohp, alamat = @alamat, usia = @usia where nasabah_id = @id";
+                        string sql = "update nasabah set nama = @name, nohp = @nohp, alamat = @alamat, usia = @usia where id = @id";
                         SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
                         using (sqlcom)
                         {
-                            sqlcom.Parameters.AddWithValue("@id", tb_id.Text);
+                            sqlcom.Parameters.AddWithValue("@id", tb_id.Text.ToString());
                             sqlcom.Parameters.AddWithValue("@name", tb_nama.Text);
-                            sqlcom.Parameters.AddWithValue("@nohp", tb_nohp.Text);
+                            sqlcom.Parameters.AddWithValue("@nohp", tb_nohp.Text.ToString());
                             sqlcom.Parameters.AddWithValue("@alamat", tb_alamat.Text);
-                            sqlcom.Parameters.AddWithValue("@usia", tb_usia.Text);
+                            sqlcom.Parameters.AddWithValue("@usia", tb_usia.Text.ToString());
                             int res = sqlcom.ExecuteNonQuery();
                             msg = (res != 0 ? "Data has been updated." : "Oops, something went wrong.");
                         }
@@ -277,6 +279,7 @@ namespace Nyoba
                     MessageBox.Show(msg);
                     ClearForm();
                     loadTable();
+                    tb_id.Text = generateID();
                 }
                 else
                 {
@@ -297,7 +300,7 @@ namespace Nyoba
             using (sqlcon)
             {
                 sqlcon.Open();
-                string sql = "delete from nasabah where nasabah_id = @id";
+                string sql = "delete from nasabah where id = @id";
                 SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
                 using (sqlcon)
                 {
@@ -311,6 +314,7 @@ namespace Nyoba
             MessageBox.Show(msg);
             ClearForm();
             loadTable();
+            tb_id.Text = generateID();
         }
 
         private void button5_Click(object sender, EventArgs e)
