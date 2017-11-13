@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.CrystalReport41 = new Nyoba.CrystalReport4();
+            this.CrystalReport21 = new Nyoba.CrystalReport2();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -40,19 +40,18 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.CrystalReport41;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(988, 491);
+            this.crystalReportViewer1.ReportSource = this.CrystalReport21;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(884, 487);
             this.crystalReportViewer1.TabIndex = 0;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 491);
+            this.ClientSize = new System.Drawing.Size(884, 487);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "Form2";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
 
         }
@@ -60,7 +59,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private CrystalReport4 CrystalReport41;
-
+        private CrystalReport2 CrystalReport21;
     }
 }

@@ -35,7 +35,6 @@ namespace Nyoba
 
         protected string generateID()
         {
-            
             string sID = null;
             int ID = 0;
             Koneksi kon = new Koneksi();
@@ -203,7 +202,6 @@ namespace Nyoba
         {
             try
             {
-
                 Koneksi kon = new Koneksi();
                 SqlConnection sqlcon = kon.getConnection();
                 //string sql = "select * from nasabah where id = '" + tb_search.Text + "';";
