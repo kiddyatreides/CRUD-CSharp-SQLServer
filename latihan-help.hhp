@@ -1,0 +1,18 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=latihan-help.chm
+Default Window=Main Window
+Default topic=html\filehelp.htm
+Display compile progress=No
+Language=0x409 English (United States)
+Title=File Help
+
+[WINDOWS]
+Main Window=,,,,,,,,,0x2000,,0x3006,,,,,,,,0
+
+
+[FILES]
+html\filehelp.htm
+
+[INFOTYPES]
+

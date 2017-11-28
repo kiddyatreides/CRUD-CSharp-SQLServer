@@ -1,0 +1,18 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=file-help.chm
+Default Window=Main Window
+Default topic=html\file_help.htm
+Display compile progress=No
+Language=0x409 English (United States)
+Title=File Help
+
+[WINDOWS]
+Main Window="Main Window",,,,,,,,,0x2000,,0x3006,,,,,,,,0
+
+
+[FILES]
+html\file_help.htm
+
+[INFOTYPES]
+

@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nyoba", "Nyoba\Nyoba.csproj", "{09E3D78F-2C3A-4523-AB88-561B25BA281C}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InstallerProject", "InstallerProject\InstallerProject.vdproj", "{1F28ED59-F954-4A42-9071-3A7B4D017F62}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ProjectInstaller", "ProjectInstaller\ProjectInstaller.vdproj", "{6FA66B8F-D3FB-4017-BEC8-A05F5665BAC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +17,10 @@ Global
 		{09E3D78F-2C3A-4523-AB88-561B25BA281C}.Debug|x86.Build.0 = Debug|x86
 		{09E3D78F-2C3A-4523-AB88-561B25BA281C}.Release|x86.ActiveCfg = Release|x86
 		{09E3D78F-2C3A-4523-AB88-561B25BA281C}.Release|x86.Build.0 = Release|x86
+		{1F28ED59-F954-4A42-9071-3A7B4D017F62}.Debug|x86.ActiveCfg = Debug
+		{1F28ED59-F954-4A42-9071-3A7B4D017F62}.Release|x86.ActiveCfg = Release
+		{6FA66B8F-D3FB-4017-BEC8-A05F5665BAC2}.Debug|x86.ActiveCfg = Debug
+		{6FA66B8F-D3FB-4017-BEC8-A05F5665BAC2}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
